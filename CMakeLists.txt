@@ -15,6 +15,6 @@ project(ML_IN_CPP VERSION 1.0.0 LANGUAGES CXX)
 include_directories("external")
 
 
-add_executable(linear_model
+add_executable(linear_model.out
     ml/LinearRegressionModel.cpp
 )

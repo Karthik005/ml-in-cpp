@@ -24,6 +24,7 @@ LinearRegressionModel::LinearRegressionModel(float alpha,
 
 void LinearRegressionModel::fit(const Eigen::MatrixXd &X, const Eigen::MatrixXd &Y)
 {
+    // set cache values
     X_ = X;
     Y_ = Y;
     
@@ -35,6 +36,11 @@ void LinearRegressionModel::fit(const Eigen::MatrixXd &X, const Eigen::MatrixXd 
 
     weights_ = Eigen::MatrixXd::Zero(X_.cols(), Y_.cols());
     std::cout << weights_ << std::endl;
+
+    loss_function = 
+    if (fit_alg_ == FitAlg::ST_GRAD) {
+        
+    }
 }
 
 Eigen::MatrixXd LinearRegressionModel::predict(const Eigen::MatrixXd &X) {

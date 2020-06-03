@@ -3,6 +3,7 @@
 
 #include "Stdafx.hpp"
 #include "AbstractRegressionModel.hpp"
+#include "exceptions.hpp"
 
 class LinearRegressionModel : public AbstractRegressionModel
 {
@@ -22,6 +23,17 @@ private:
     RegMode reg_mode_; // learning rate
     float alpha_; // learning rate
     float lambda_; // regularization hyperparam
+
+    // funcs
+    double get_mean_squared_loss(Eigen::MatrixXd predicted, Eigen::MatrixXd actual) {
+        if (predicted.rows() != actual.rows() || predicted.cols() != actual.cols()) {
+            throw ShapeMismatch();
+        }
+
+        auto diff_val = predicted - actual;
+        diff_val = diff_val.pow(2);
+
+    }
 };
 
 #endif
